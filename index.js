@@ -13,19 +13,19 @@ class scpExecutor extends Execution {
     var _this = this;
     var endOptions = {};
 
-    var scpCommand = `scp ${(params.identityFile) ? '-i' : ''} ${params.identityFile} ${params.localFile} ${params.remoteUser}@${params.remoteHost}:${params.remoteFilePath}`;
+    var scpCommand = `scp ${(params.identityFile) ? "-i" : ""} ${params.identityFile} ${params.localFile} ${params.remoteUser}@${params.remoteHost}:${params.remoteFilePath}`;
     endOptions.command_executed = scpCommand;
     var proc = spawn(scpCommand, [], {shell: true});
 
-    var stderr = '';
-    proc.stderr.on('data', function (chunk) {
+    var stderr = "";
+    proc.stderr.on("data", function (chunk) {
       stderr += chunk;
     });
 
     proc
-      .on('close', function (code, signal) {
+      .on("close", function (code, signal) {
         if (code) {
-          endOptions.end = 'error';
+          endOptions.end = "error";
           endOptions.messageLog = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
           endOptions.execute_err_return = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
           _this.end(endOptions);
