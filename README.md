@@ -4,7 +4,7 @@
 ```json
 {
   "id": "scp_default",
-  "type": "@runnerty/executor-scp"
+  "type": "@runnerty-executor-scp"
 }
 ```
 
