@@ -27,7 +27,7 @@ class scpExecutor extends Execution {
         if (code) {
           endOptions.end = "error";
           endOptions.messageLog = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
-          endOptions.execute_err_return = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
+          endOptions.err_output = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
           _this.end(endOptions);
         } else {
           _this.end();
