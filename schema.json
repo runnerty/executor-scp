@@ -19,6 +19,9 @@
         "identityFile": {
           "type": "string"
         },
+        "remotePassword": {
+          "type": "string"
+        },
         "remoteUser": {
           "type": "string"
         },
@@ -38,6 +41,9 @@
           "type": "string"
         },
         "identityFile": {
+          "type": "string"
+        },
+        "remotePassword": {
           "type": "string"
         },
         "localFile": {
