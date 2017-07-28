@@ -13,7 +13,11 @@ class scpExecutor extends Execution {
     var _this = this;
     var endOptions = {};
 
-    var scpCommand = `scp ${(params.identityFile) ? "-i" : ""} ${params.identityFile} ${params.localFile} ${params.remoteUser}@${params.remoteHost}:${params.remoteFilePath}`;
+    if (params.remotePassword){
+      var scpCommand = `sshpass -p ${params.remotePassword} scp ${params.localFile} ${params.remoteUser}@${params.remoteHost}:${params.remoteFilePath}`;
+    }else{
+      var scpCommand = `scp ${(params.identityFile) ? "-i" : ""} ${params.identityFile} ${params.localFile} ${params.remoteUser}@${params.remoteHost}:${params.remoteFilePath}`;
+    }
     endOptions.command_executed = scpCommand;
     var proc = spawn(scpCommand, [], {shell: true});
 

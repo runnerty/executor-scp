@@ -1,4 +1,5 @@
 # SCP executor for [Runnerty]:
+Requires sshpass tool to be installed in the SO.
 
 ### Configuration sample:
 ```json
@@ -19,6 +20,8 @@
   "remoteHost": "my.host.com"
 }
 ```
+
+It is possible to use ```"remotePassword"``` instead off ```"identityFile"```
 
 
 [Runnerty]: http://www.runnerty.io
