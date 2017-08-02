@@ -21,7 +21,10 @@ Requires sshpass tool to be installed in the SO.
 }
 ```
 
+By default, the executor use the port 22, it is possible to indicate a different port with the property ```"remotePort"```
+
 It is possible to use ```"remotePassword"``` instead off ```"identityFile"```
+
 
 
 [Runnerty]: http://www.runnerty.io
