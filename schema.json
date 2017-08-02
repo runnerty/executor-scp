@@ -27,6 +27,9 @@
         },
         "remoteHost": {
           "type": "string"
+        },
+        "remotePort": {
+          "type": "number"
         }
       }
     },
@@ -57,6 +60,9 @@
         },
         "remoteHost": {
           "type": "string"
+        },
+        "remotePort": {
+          "type": "number"
         }
       }
     }
