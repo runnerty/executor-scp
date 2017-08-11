@@ -1,13 +1,13 @@
 {
   "name": "@runnerty/executor-scp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Runnerty module: scp executor",
   "author": "Coderty",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Coderty/runnerty-executor-scp.git"
+    "url": "git+https://github.com/runnerty/executor-scp.git"
   },
   "keywords": [
     "runnerty",
@@ -15,9 +15,9 @@
     "scp"
   ],
   "bugs": {
-    "url": "https://github.com/Coderty/runnerty-executor-scp/issues"
+    "url": "https://github.com/runnerty/executor-scp/issues"
   },
-  "homepage": "https://github.com/Coderty/runnerty-executor-scp#readme",
+  "homepage": "https://github.com/runnerty/executor-scp#readme",
   "dependencies": {
   }
 }
