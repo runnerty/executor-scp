@@ -1,43 +1,41 @@
-"use strict";
+'use strict';
 
-var spawn = require("child_process").spawn;
+const spawn = require('child_process').spawn;
 
-var Execution = global.ExecutionClass;
+const Executor = require('@runnerty/module-core').Executor;
 
-class scpExecutor extends Execution {
+class scpExecutor extends Executor {
   constructor(process) {
     super(process);
   }
 
   exec(params) {
-    var _this = this;
-    var endOptions = {};
+    const endOptions = {};
 
-    let port = (params.remotePort) ? `-P ${params.remotePort}` : '-P 22';
-    let password = (params.remotePassword)?`sshpass -p ${params.remotePassword}`:"";
-    let identityFile = (params.identityFile && password === "") ? `-i ${params.identityFile}` : "";
-    
-    var scpCommand = `${password} scp ${port} ${identityFile} ${params.localFile} ${params.remoteUser}@${params.remoteHost}:${params.remoteFilePath}`;
-    
+    const port = params.remotePort | '22';
+    const password = params.remotePassword ? `sshpass -p ${params.remotePassword}` : '';
+    const identityFile = params.identityFile && password === '' ? `-i ${params.identityFile}` : '';
+
+    const scpCommand = `${password} scp -P ${port} ${identityFile} ${params.localFile} ${params.remoteUser}@${params.remoteHost}:${params.remoteFilePath}`;
+
     endOptions.command_executed = scpCommand;
-    var proc = spawn(scpCommand, [], {shell: true});
+    const proc = spawn(scpCommand, [], { shell: true });
 
-    var stderr = "";
-    proc.stderr.on("data", function (chunk) {
+    let stderr = '';
+    proc.stderr.on('data', chunk => {
       stderr += chunk;
     });
 
-    proc
-      .on("close", function (code, signal) {
-        if (code) {
-          endOptions.end = "error";
-          endOptions.messageLog = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
-          endOptions.err_output = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
-          _this.end(endOptions);
-        } else {
-          _this.end();
-        }
-      });
+    proc.on('close', (code, signal) => {
+      if (code) {
+        endOptions.end = 'error';
+        endOptions.messageLog = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
+        endOptions.err_output = `SCP Error (${scpCommand}): ${signal} / ${stderr}`;
+        this.end(endOptions);
+      } else {
+        this.end();
+      }
+    });
   }
 }
 

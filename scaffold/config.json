@@ -1,0 +1,8 @@
+{
+  "executors": [
+    {
+      "id": "scp_default",
+      "type": "@runnerty-executor-scp"
+    }
+  ]
+}

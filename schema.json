@@ -4,10 +4,7 @@
   "definitions": {
     "config": {
       "type": "object",
-      "required": [
-        "id",
-        "type"
-      ],
+      "required": ["id", "type"],
       "properties": {
         "id": {
           "type": "string"
@@ -35,10 +32,7 @@
     },
     "params": {
       "type": "object",
-      "required": [
-        "id",
-        "localFile"
-      ],
+      "required": ["id", "localFile"],
       "properties": {
         "id": {
           "type": "string"
