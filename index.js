@@ -12,7 +12,7 @@ class scpExecutor extends Executor {
   exec(params) {
     const endOptions = {};
 
-    const port = params.remotePort | '22';
+    const port = params.remotePort || '22';
     const password = params.remotePassword ? `sshpass -p '${params.remotePassword}'` : '';
     const identityFile = params.identityFile && password === '' ? `-i ${params.identityFile}` : '';
 
