@@ -61,8 +61,20 @@ Add in [plan.json]:
   "identityFile": "mykey.pem",
   "localFile": "originfile.txt",
   "remoteFilePath": "/var/remote.txt",
+  "remoteHost": "my.host.com",
+  "remoteUser": "user"
+}
+```
+
+```json
+{
+  "id": "scp_default",
+  "identityFile": "mykey.pem",
+  "localFile": "originfile.txt",
+  "remoteFilePath": "/var/remote.txt",
+  "remoteHost": "my.host.com",
   "remoteUser": "user",
-  "remoteHost": "my.host.com"
+  "remorePassword": "password"
 }
 ```
 
